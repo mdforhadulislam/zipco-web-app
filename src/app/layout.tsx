@@ -1,3 +1,4 @@
+import NavBar from "@/components/Nav/NavBar";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -13,7 +14,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div className="w-full h-auto">
+          <NavBar></NavBar>
+        {children}
+        </div>
+      </body>
     </html>
   );
 }
