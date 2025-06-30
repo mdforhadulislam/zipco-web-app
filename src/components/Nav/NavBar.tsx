@@ -168,7 +168,9 @@ const Navbar = ({
                   <SheetHeader>
                     <SheetTitle>
                       <a href={logo.url} className="flex items-center gap-2">
-                        <img
+                        <Image
+                        width={100}
+                        height={100}
                           src={logo.src}
                           className="max-h-8"
                           alt={logo.alt}
