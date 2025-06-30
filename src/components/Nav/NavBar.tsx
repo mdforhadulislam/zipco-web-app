@@ -22,6 +22,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import Image from "next/image";
 
 interface MenuItem {
   title: string;
@@ -144,7 +145,7 @@ const Navbar = ({
             <div className="flex items-center gap-6">
               {/* Logo */}
               <a href={logo.url} className="flex items-center gap-2">
-                <img src={logo.src} className="max-h-8" alt={logo.alt} />
+                <Image width={100} height={100} src={logo.src} className="max-h-8" alt={logo.alt} />
                 <span className="text-lg font-semibold tracking-tighter">
                   {logo.title}
                 </span>
