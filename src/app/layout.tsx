@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className="w-full h-auto">
-          <NavBar></NavBar>
+          <NavBar /> 
         {children}
         </div>
       </body>

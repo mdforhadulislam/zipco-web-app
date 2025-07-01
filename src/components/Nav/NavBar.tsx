@@ -129,8 +129,8 @@ const Navbar = ({
   },
 }: NavbarProps) => {
   return (
-    <section className="w-full h-[72px]">
-      <div className="py-3 border-b w-full fixed top-0 backdrop-blur-md bg-white px-3">
+    <section className="w-full h-[58px]">
+      <div className="py-3 border-b w-full fixed top-0 backdrop-blur-md bg-white px-4">
         <div className="container m-auto">
           {/* Desktop Menu */}
           <nav className=" justify-between flex">
@@ -138,8 +138,8 @@ const Navbar = ({
               {/* Logo */}
               <a href={logo.url} className="flex items-center gap-2">
                 <Image
-                  width={100}
-                  height={100}
+                  width={40}
+                  height={40}
                   src={logo.src}
                   className="max-h-8"
                   alt={logo.alt}
@@ -151,13 +151,13 @@ const Navbar = ({
             </div>
             <div className="flex gap-2 items-center align-middle">
               <div className="flex items-center gap-2">
-                Login/Sing Up <CircleUserRound className="w-9 h-9" />
+                Login <CircleUserRound className="w-9 h-9" strokeWidth={1} /> 
               </div>
 
               <Sheet>
                 <SheetTrigger asChild>
                   <Button variant="outline" size="icon">
-                    <Menu className="size-4" />
+                    <Menu className="size-5" strokeWidth={2} />
                   </Button>
                 </SheetTrigger>
                 <SheetContent className="overflow-y-auto">
@@ -165,8 +165,8 @@ const Navbar = ({
                     <SheetTitle>
                       <a href={logo.url} className="flex items-center gap-2">
                         <Image
-                          width={100}
-                          height={100}
+                          width={40}
+                          height={40}
                           src={logo.src}
                           className="max-h-8"
                           alt={logo.alt}
@@ -191,6 +191,12 @@ const Navbar = ({
                         <a href={auth.signup.url}>{auth.signup.title}</a>
                       </Button>
                     </div>
+
+                    <div>
+
+                    </div>
+
+
                   </div>
                 </SheetContent>
               </Sheet>
