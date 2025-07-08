@@ -41,6 +41,10 @@ interface NavbarProps {
       title: string;
       url: string;
     };
+    logout:{
+      title: string;
+      url: string;
+    }
   };
 }
 
@@ -49,32 +53,34 @@ const Navbar = ({
     url: "#",
     src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg",
     alt: "logo",
-    title: "Zipco Express",
+    title: "Finex Ltd.",
   },
   menu = [
-    { title: "Home", url: "#" },
+    { title: "Home", url: "#" },{ title: "Track Your Shipment", url: "#" },
     {
-      title: "Products",
+      title: "Pricing",
+      url: "#",
+    }, {
+      title: "Blog",
+      url: "#",
+    },
+    {
+      title: "About Us",
       url: "#",
       items: [
         {
-          title: "Blog",
+          title: "Company",
           description: "The latest industry news, updates, and info",
           icon: <Book className="size-5 shrink-0" />,
           url: "#",
         },
         {
-          title: "Company",
+          title: "Work",
           description: "Our mission is to innovate and empower the world",
           icon: <Trees className="size-5 shrink-0" />,
           url: "#",
         },
-        {
-          title: "Careers",
-          description: "Browse job listing and discover our workspace",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "#",
-        },
+       
         {
           title: "Support",
           description:
@@ -82,55 +88,35 @@ const Navbar = ({
           icon: <Zap className="size-5 shrink-0" />,
           url: "#",
         },
-      ],
-    },
-    {
-      title: "Resources",
-      url: "#",
-      items: [
-        {
-          title: "Help Center",
-          description: "Get all the answers you need right here",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Contact Us",
-          description: "We are here to help you with any questions you have",
+         {
+          title: "Careers",
+          description: "Browse job listing and discover our workspace",
           icon: <Sunset className="size-5 shrink-0" />,
           url: "#",
         },
-        {
-          title: "Status",
-          description: "Check the current status of our services and APIs",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Terms of Service",
-          description: "Our terms and conditions for using our services",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "#",
-        },
       ],
     },
-    {
-      title: "Pricing",
+     {
+      title: "Contact Us",
       url: "#",
     },
-    {
-      title: "Blog",
+    
+     {
+      title: "Pickup Request",
       url: "#",
     },
+   
+   
   ],
   auth = {
     login: { title: "Login", url: "#" },
     signup: { title: "Sign up", url: "#" },
+    logout: { title: "Logout", url: "#" },
   },
 }: NavbarProps) => {
   return (
     <section className="w-full h-[58px]">
-      <div className="py-3 border-b w-full fixed top-0 backdrop-blur-md bg-white px-4">
+      <div className="py-3 border-b w-full fixed top-0 backdrop-blur-md bg-white px-4 ">
         <div className="container m-auto">
           {/* Desktop Menu */}
           <nav className=" justify-between flex">
@@ -156,13 +142,13 @@ const Navbar = ({
 
               <Sheet>
                 <SheetTrigger asChild>
-                  <Button variant="outline" size="icon">
-                    <Menu className="size-5" strokeWidth={2} />
-                  </Button>
+                  {/* <Button variant="outline" size="icon" className="bg-red-600 border-0 text-white"> */}
+                    <Menu className="size-8" strokeWidth={2} />
+                  {/* </Button> */}
                 </SheetTrigger>
-                <SheetContent className="overflow-y-auto">
-                  <SheetHeader>
-                    <SheetTitle>
+                <SheetContent className="overflow-y-auto bg-white ">
+                  <SheetHeader className="border-b">
+                    <SheetTitle className="">
                       <a href={logo.url} className="flex items-center gap-2">
                         <Image
                           width={40}
@@ -174,22 +160,20 @@ const Navbar = ({
                       </a>
                     </SheetTitle>
                   </SheetHeader>
-                  <div className="flex flex-col gap-6 p-4">
+                  <div className="flex flex-col gap-6 p-4 ">
                     <Accordion
                       type="single"
                       collapsible
-                      className="flex w-full flex-col gap-4"
+                      className="flex w-full flex-col gap-2"
                     >
                       {menu.map((item) => renderMobileMenuItem(item))}
                     </Accordion>
 
                     <div className="flex flex-col gap-3">
-                      <Button className="bg-red-500">
-                        <a href={auth.login.url}>{auth.login.title}</a>
-                      </Button>
-                      <Button className="bg-green-500 ">
-                        <a href={auth.signup.url}>{auth.signup.title}</a>
-                      </Button>
+                      <div className="bg-red-500 flex items-center gap-2 h-12 rounded-md justify-center align-middle text-white hover:bd-dafult transition-all duration-150 ease-linear">
+                        <CircleUserRound className="w-9 h-9" strokeWidth={1} /> <a href={auth.login.url}>{auth.login.title}</a>
+                      </div>
+                      
                     </div>
 
                     <div>
@@ -208,38 +192,10 @@ const Navbar = ({
   );
 };
 
-// const renderMenuItem = (item: MenuItem) => {
-//   if (item.items) {
-//     return (
-//       <NavigationMenuItem key={item.title}>
-//         <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
-//         <NavigationMenuContent className="bg-popover text-popover-foreground">
-//           {item.items.map((subItem) => (
-//             <NavigationMenuLink asChild key={subItem.title} className="w-80">
-//               <SubMenuLink item={subItem} />
-//             </NavigationMenuLink>
-//           ))}
-//         </NavigationMenuContent>
-//       </NavigationMenuItem>
-//     );
-//   }
-
-//   return (
-//     <NavigationMenuItem key={item.title}>
-//       <NavigationMenuLink
-//         href={item.url}
-//         className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground"
-//       >
-//         {item.title}
-//       </NavigationMenuLink>
-//     </NavigationMenuItem>
-//   );
-// };
-
 const renderMobileMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
-      <AccordionItem key={item.title} value={item.title} className="border-b-0">
+      <AccordionItem key={item.title} value={item.title} className="border-b-0 p-3 border border-gray-100 hover:bg-gray-50 transition-all duration-150 ease-linear rounded-md">
         <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline">
           {item.title}
         </AccordionTrigger>
@@ -253,7 +209,7 @@ const renderMobileMenuItem = (item: MenuItem) => {
   }
 
   return (
-    <a key={item.title} href={item.url} className="text-md font-semibold">
+    <a key={item.title} href={item.url} className="text-md font-semibold p-3 border rounded-md border-gray-100 hover:bg-gray-50 transition-all duration-150 ease-linear">
       {item.title}
     </a>
   );
