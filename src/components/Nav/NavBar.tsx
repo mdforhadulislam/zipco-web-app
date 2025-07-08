@@ -6,7 +6,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -41,10 +40,10 @@ interface NavbarProps {
       title: string;
       url: string;
     };
-    logout:{
+    logout: {
       title: string;
       url: string;
-    }
+    };
   };
 }
 
@@ -53,14 +52,16 @@ const Navbar = ({
     url: "#",
     src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg",
     alt: "logo",
-    title: "Finex Ltd.",
+    title: "Zypco Ltd.",
   },
   menu = [
-    { title: "Home", url: "#" },{ title: "Track Your Shipment", url: "#" },
+    { title: "Home", url: "#" },
+    { title: "Track Your Shipment", url: "#" },
     {
       title: "Pricing",
       url: "#",
-    }, {
+    },
+    {
       title: "Blog",
       url: "#",
     },
@@ -80,7 +81,7 @@ const Navbar = ({
           icon: <Trees className="size-5 shrink-0" />,
           url: "#",
         },
-       
+
         {
           title: "Support",
           description:
@@ -88,7 +89,7 @@ const Navbar = ({
           icon: <Zap className="size-5 shrink-0" />,
           url: "#",
         },
-         {
+        {
           title: "Careers",
           description: "Browse job listing and discover our workspace",
           icon: <Sunset className="size-5 shrink-0" />,
@@ -96,17 +97,15 @@ const Navbar = ({
         },
       ],
     },
-     {
+    {
       title: "Contact Us",
       url: "#",
     },
-    
-     {
+
+    {
       title: "Pickup Request",
       url: "#",
     },
-   
-   
   ],
   auth = {
     login: { title: "Login", url: "#" },
@@ -137,13 +136,13 @@ const Navbar = ({
             </div>
             <div className="flex gap-2 items-center align-middle">
               <div className="flex items-center gap-2">
-                Login <CircleUserRound className="w-9 h-9" strokeWidth={1} /> 
+                Login <CircleUserRound className="w-9 h-9" strokeWidth={1} />
               </div>
 
               <Sheet>
                 <SheetTrigger asChild>
                   {/* <Button variant="outline" size="icon" className="bg-red-600 border-0 text-white"> */}
-                    <Menu className="size-8" strokeWidth={2} />
+                  <Menu className="size-8" strokeWidth={2} />
                   {/* </Button> */}
                 </SheetTrigger>
                 <SheetContent className="overflow-y-auto bg-white ">
@@ -170,17 +169,13 @@ const Navbar = ({
                     </Accordion>
 
                     <div className="flex flex-col gap-3">
-                      <div className="bg-red-500 flex items-center gap-2 h-12 rounded-md justify-center align-middle text-white hover:bd-dafult transition-all duration-150 ease-linear">
-                        <CircleUserRound className="w-9 h-9" strokeWidth={1} /> <a href={auth.login.url}>{auth.login.title}</a>
+                      <div className="bg-red-500 flex items-center gap-2 h-12 rounded-md justify-center align-middle text-white hover:bd-dafult transition-all duration-150 ease-linear ">
+                        <CircleUserRound className="w-9 h-9" strokeWidth={1} />{" "}
+                        <a href={auth.login.url}>{auth.login.title}</a>
                       </div>
-                      
                     </div>
 
-                    <div>
-
-                    </div>
-
-
+                    <div></div>
                   </div>
                 </SheetContent>
               </Sheet>
@@ -195,7 +190,11 @@ const Navbar = ({
 const renderMobileMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
-      <AccordionItem key={item.title} value={item.title} className="border-b-0 p-3 border border-gray-100 hover:bg-gray-50 transition-all duration-150 ease-linear rounded-md">
+      <AccordionItem
+        key={item.title}
+        value={item.title}
+        className="border-b-0 p-3 border border-gray-100 hover:bg-gray-50 transition-all duration-150 ease-linear rounded-md"
+      >
         <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline">
           {item.title}
         </AccordionTrigger>
@@ -209,7 +208,11 @@ const renderMobileMenuItem = (item: MenuItem) => {
   }
 
   return (
-    <a key={item.title} href={item.url} className="text-md font-semibold p-3 border rounded-md border-gray-100 hover:bg-gray-50 transition-all duration-150 ease-linear">
+    <a
+      key={item.title}
+      href={item.url}
+      className="text-md font-semibold p-3 border rounded-md border-gray-100 hover:bg-gray-50 transition-all duration-150 ease-linear"
+    >
       {item.title}
     </a>
   );
