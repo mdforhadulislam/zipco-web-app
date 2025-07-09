@@ -115,7 +115,7 @@ const Navbar = ({
 }: NavbarProps) => {
   return (
     <section className="w-full h-[58px]">
-      <div className="py-3 border-b w-full fixed top-0 backdrop-blur-md bg-white px-4 ">
+      <div className="py-3 border-b w-full fixed top-0 backdrop-blur-md bg-green-600 text-white px-4 ">
         <div className="container m-auto">
           {/* Desktop Menu */}
           <nav className=" justify-between flex">
@@ -146,7 +146,7 @@ const Navbar = ({
                   {/* </Button> */}
                 </SheetTrigger>
                 <SheetContent className="overflow-y-auto bg-white ">
-                  <SheetHeader className="border-b">
+                  <SheetHeader className="border-b bg-green-600 text-white">
                     <SheetTitle className="">
                       <a href={logo.url} className="flex items-center gap-2">
                         <Image
@@ -169,7 +169,7 @@ const Navbar = ({
                     </Accordion>
 
                     <div className="flex flex-col gap-3">
-                      <div className="bg-red-500 flex items-center gap-2 h-12 rounded-md justify-center align-middle text-white hover:bd-dafult transition-all duration-150 ease-linear ">
+                      <div className="bg-green-600 flex items-center gap-2 h-12 rounded-md justify-center align-middle text-white hover:bd-dafult transition-all duration-150 ease-linear ">
                         <CircleUserRound className="w-9 h-9" strokeWidth={1} />{" "}
                         <a href={auth.login.url}>{auth.login.title}</a>
                       </div>
